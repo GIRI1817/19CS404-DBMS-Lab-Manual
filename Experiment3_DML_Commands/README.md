@@ -47,123 +47,135 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
-
+Write a SQL statement to increase the salary of employees under the department 40, 90 and 110 according to the company rules. Salary will be increased by 25% for the department 40, 15% for department 90 and 10% for the department 110 and the rest of the departments will remain same.
 ```sql
--- Paste your SQL code below for Question 1
+update Employees
+set salary=
+    case
+        when department_id=40 then round(salary*1.25 )
+        when department_id=90 then round(salary*1.15 )
+        when department_id=110 then round(salary*1.1 )
+        else salary
+    end;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1173" height="265" alt="image" src="https://github.com/user-attachments/assets/ca846cb1-9566-41d1-a3ac-265bfa1892d8" />
 
 **Question 2**
 ---
--- Paste Question 2 here
-
+Write a SQL statement to double the availability of the product with product_id 1.
 ```sql
--- Paste your SQL code below for Question 2
+update products
+set availability=2*availability
+where product_id=1;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="976" height="220" alt="image" src="https://github.com/user-attachments/assets/c93cccfc-bf2f-4b1c-a5bc-245eae6f08a8" />
 
 **Question 3**
 ---
--- Paste Question 3 here
-
+Write a SQL statement to Increase the selling price by 15% in the products table where quantity in stock is less than 50 and supplier ID is 10.
 ```sql
--- Paste your SQL code below for Question 3
+update Products
+set sell_price=sell_price*1.15
+where quantity<50 and  supplier_id=10;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1220" height="293" alt="image" src="https://github.com/user-attachments/assets/bdfed657-f540-4738-91e7-3730490b756e" />
 
 **Question 4**
 ---
--- Paste Question 4 here
-
+Write a SQL statement to Update the product_name to 'Premium Bread' whose product ID is 5 in the products table.
 ```sql
--- Paste your SQL code below for Question 4
+update Products
+set product_name='Premium Bread'
+where product_id=5;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1181" height="233" alt="image" src="https://github.com/user-attachments/assets/84ed8a34-0e8a-478e-9f89-d794c3179581" />
 
 **Question 5**
 ---
--- Paste Question 5 here
-
+Change the supplier name to upper case where contact person contains ' Singh' in suppliers table.
 ```sql
--- Paste your SQL code below for Question 5
+update suppliers
+set supplier_name=upper(supplier_name) 
+where contact_person like '%Singh';
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1362" height="231" alt="image" src="https://github.com/user-attachments/assets/991813cd-5e25-4002-9df0-e77cb61660e1" />
 
 **Question 6**
 ---
--- Paste Question 6 here
-
+Write a SQL query to Delete customers with 'GRADE' 3 and whose 'CUST_NAME' contains the substring 'BBB', and 'PAYMENT_AMT' is greater than 2000
 ```sql
--- Paste your SQL code below for Question 6
+delete from customer
+where grade=3 and cust_name like "%BBB%" and PAYMENT_AMT>2000;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1358" height="302" alt="image" src="https://github.com/user-attachments/assets/1a6646f8-5f25-4a95-9045-2ed7d697c6e8" />
 
 **Question 7**
 ---
--- Paste Question 7 here
-
+Write a SQL query to Delete a Specific Surgery whose ID is 3
 ```sql
--- Paste your SQL code below for Question 7
+delete from Surgeries
+where surgery_id=3;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="655" height="233" alt="image" src="https://github.com/user-attachments/assets/a860df70-cf38-4cc4-adc0-35c772542016" />
 
 **Question 8**
 ---
--- Paste Question 8 here
-
+Write a SQL query to delete a specific doctor from Doctors table whose ID is 1.
 ```sql
--- Paste your SQL code below for Question 8
+delete from doctors
+where doctor_id=1;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="710" height="172" alt="image" src="https://github.com/user-attachments/assets/0395e159-3901-4141-adaf-9d1a5b87bbeb" />
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Write a SQL query to Delete customers whose 'GRADE' is greater than 2 and have a 'PAYMENT_AMT' less than the average 'PAYMENT_AMT' for all customers, or whose 'OUTSTANDING_AMT' is greater than 8000.
 ```sql
--- Paste your SQL code below for Question 9
+delete from customer
+where grade>2 and payment_amt<(select avg(payment_amt) from customer) or outstanding_amt>8000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1448" height="339" alt="image" src="https://github.com/user-attachments/assets/74794e3d-4045-425d-9b12-13def1e2f017" />
 
 **Question 10**
 ---
--- Paste Question 10 here
-
+Write a SQL query to Delete All Doctors with a NULL Specialization
 ```sql
--- Paste your SQL code below for Question 10
+delete from doctors
+where specialization is null;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="609" height="517" alt="image" src="https://github.com/user-attachments/assets/a484e376-3b93-44ee-b993-59f81f6cda17" />
+
+<img width="1918" height="1197" alt="image" src="https://github.com/user-attachments/assets/7eb07df0-35a0-4255-8e07-3b20a8dc9369" />
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
